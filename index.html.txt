@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homepage</title>
+        <style>
+            .carousel-container {
+                position: relative;
+                height: 400px;
+                overflow: hidden;
+            }
+
+            .carousel-slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: transform 0.5s ease-in-out;
+            }
+
+            .carousel-slide img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .carousel-slide:nth-child(1) {
+                background-color: #ff0000;
+            }
+
+            .carousel-slide:nth-child(2) {
+                background-color: #00ff00;
+            }
+
+            .carousel-slide:nth-child(3) {
+                background-color: #0000ff;
+            }
+
+            .carousel-slide.active {
+                transform: translateX(0);
+            }
+
+            .carousel-slide.next {
+                transform: translateX(100%);
+            }
+
+            .carousel-slide.prev {
+                transform: translateX(-100%);
+            }
+
+            .carousel-navigation {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .carousel-navigation button {
+                background-color: #ffffff;
+                border: none;
+                margin: 0 10px;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+
+            .carousel-navigation button:hover {
+                background-color: #cccccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <img src="path/to/image1.jpg" alt="Image 1">
+            </div>
+            <div class="carousel-slide next">
+                <img src="path/to/image2.jpg" alt="Image 2">
+            </div>
+            <div class="carousel-slide prev">
+                <img src="path/to/image3.jpg" alt="Image 3">
+            </div>
+            <div class="carousel-navigation">
+                <button id="prevBtn">Prev</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+        <script>
+            const carouselSlide = document.querySelector('.carousel-slide');
+            const carouselImages = document.querySelectorAll('.carousel-slide img');
+
+            // Buttons
+            const prevBtn = document.querySelector('#prevBtn');
+            const nextBtn = document.querySelector('#nextBtn');
+
+            // Counter
+            let counter = 1;
+            const size = carouselImages[0].clientWidth;
+
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+            // Button Listeners
+            nextBtn.addEventListener('click', () => {
+                if (counter >= carouselImages.length - 1) return;
+                carouselSlide.classList.add('next');
+                counter++;
+                carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (counter <= 0) return;
+                carouselSlide.classList.add('prev');
+                counter--;
+                carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+            });
+
+            carouselSlide.addEventListener('transitionend', () => {
+                if (carouselImages[counter].id === 'lastClone') {
+                    carouselSlide.style.transition = 'none';
+                    counter = carouselImages.length - 2;
+                    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                }
+
+                if (carouselImages[counter].id === 'firstClone') {
+                    carouselSlide.style.transition = 'none';
+                    counter = carouselImages.length - counter;
+                    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                }
+
+                carouselSlide.classList.remove('next');
+                carouselSlide.classList.remove('prev');
+            });
+        </script>
+    </body>
+</html>
