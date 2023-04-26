@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>静态网页示例 标题 title</title>
-  </head>
-  <body>
-    <h1>静态网页示例 h1</h1>
-    <p>静态网页示例 p</p>
-  </body>
-</html
+    <head>
+        <title>Static Navigation Page</title>
+        <style>
+            .header-section {
+                background-color: #f2f2f2;
+            }
+
+            .sidebar-section {
+                background-color: #e6e6e6;
+            }
+
+            .content-section {
+                background-color: #ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Logo -->
+        <header class="header-section">
+            <div class="logo">Your logo here.</div>
+        </header>
+        <hr>
+        <!-- Left Sidebar links -->
+        <aside class="sidebar-section">
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <hr>
+        <!-- Main Content -->
+        <main id="content" class="content-section">
+            <!-- Your content goes here -->
+        </main>
+    </body>
+</html>
