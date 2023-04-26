@@ -1,43 +1,57 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Static Navigation Page</title>
+        <title>Homepage</title>
         <style>
-            .header-section {
-                background-color: #f2f2f2;
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 20px;
             }
 
-            .sidebar-section {
-                background-color: #e6e6e6;
-            }
-
-            .content-section {
+            .grid-item {
                 background-color: #ffffff;
+                border: 1px solid #cccccc;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .grid-item img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .grid-item h2 {
+                margin-top: 0;
             }
         </style>
     </head>
     <body>
-        <!-- Logo -->
-        <header class="header-section">
-            <div class="logo">Your logo here.</div>
-        </header>
-        <hr>
-        <!-- Left Sidebar links -->
-        <aside class="sidebar-section">
-            <nav>
-                <ul>
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about-us">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact-us">Contact Us</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <hr>
-        <!-- Main Content -->
-        <main id="content" class="content-section">
-            <!-- Your content goes here -->
-        </main>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="path/to/image1.jpg" alt="Image 1">
+                <h2>Section 1</h2>
+            </div>
+            <div class="grid-item">
+                <img src="path/to/image2.jpg" alt="Image 2">
+                <h2>Section 2</h2>
+            </div>
+            <div class="grid-item">
+                <img src="path/to/image3.jpg" alt="Image 3">
+                <h2>Section 3</h2>
+            </div>
+            <div class="grid-item">
+                <img src="path/to/image4.jpg" alt="Image 4">
+                <h2>Section 4</h2>
+            </div>
+            <div class="grid-item">
+                <img src="path/to/image5.jpg" alt="Image 5">
+                <h2>Section 5</h2>
+            </div>
+            <div class="grid-item">
+                <img src="path/to/image6.jpg" alt="Image 6">
+                <h2>Section 6</h2>
+            </div>
+        </div>
     </body>
 </html>
